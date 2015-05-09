@@ -1,0 +1,23 @@
+# {{ ansible_managed }}
+# tab=4
+
+127.0.0.1       localhost
+{{ ansible_default_ipv4.address }}	{{ ansible_hostname }}
+
+{% if hosts_file.ipv4 is defined %}
+{% for entry in hosts_file.ipv4 %}
+{{ entry }}
+{% endfor %}
+{% endif %}
+
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+{% if hosts_file.ipv6 is defined %}
+{% for entry in hosts_file.ipv6 %}
+{{ entry }}
+{% endfor %}
+{% endif %}
