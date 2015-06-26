@@ -1,8 +1,6 @@
 # {{ ansible_managed }}
-# tab=4
-
-127.0.0.1       localhost
-{{ ansible_default_ipv4.address }}	{{ ansible_hostname }}
+127.0.0.1   localhost
+{{ ansible_default_ipv4.address }}    {{ ansible_fqdn }}    {{ ansible_hostname }}
 
 {% if hosts_file.ipv4 is defined %}
 {% for entry in hosts_file.ipv4 %}
